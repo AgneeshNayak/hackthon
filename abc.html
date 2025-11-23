@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Get Accurate Location</title>
+</head>
+<body>
+
+<h2>Get My Exact Location</h2>
+<button onclick="getLoc()">Get Location</button>
+<p id="msg"></p>
+<p id="coords"></p>
+
+<script>
+function getLoc() {
+  const msg = document.getElementById("msg");
+  const coords = document.getElementById("coords");
+
+  if (!navigator.geolocation) {
+    msg.innerHTML = "Geolocation is not supported in this browser.";
+    return;
+  }
+
+  msg.innerHTML = "Fetching precise location...";
+
+  navigator.geolocation.getCurrentPosition(
+    (pos) => {
+      let lat = pos.coords.latitude;
+      let lon = pos.coords.longitude;
+      let accuracy = pos.coords.accuracy;
+
+      msg.innerHTML = `Accuracy: ${accuracy} meters`;
+      coords.innerHTML = `
+        Latitude: ${lat} <br>
+        Longitude: ${lon} <br><br>
+        <a href="https://maps.google.com/?q=${lat},${lon}" target="_blank">
+          Open in Google Maps
+        </a>
+      `;
+    },
+    (error) => {
+      msg.innerHTML = `Error: ${error.message}`;
+    },
+    {
+      enableHighAccuracy: true,
+      timeout: 10000,
+      maximumAge: 0
+    }
+  );
+}
+</script>
+
+</body>
+</html>

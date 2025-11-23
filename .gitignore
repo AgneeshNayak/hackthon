@@ -1,0 +1,7 @@
+node_modules/
+server/disasteralert.db
+public/uploads/
+.env
+*.log
+.DS_Store
+

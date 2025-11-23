@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DisasterAlert — Login</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <div class="logo-section">
+        <div class="logo-icon">🚨</div>
+        <h1>DisasterAlert</h1>
+        <p>Community Emergency Reporting & Response System</p>
+      </div>
+
+      <div class="login-form">
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="user">User</button>
+          <button class="tab-btn" data-tab="admin">Admin</button>
+        </div>
+
+        <!-- User Login Form -->
+        <form id="userLoginForm" class="form active">
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" id="userUsername" placeholder="Enter your username" required />
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="userPassword" placeholder="Enter your password" required />
+          </div>
+          <button type="submit" class="btn-primary">Login as User</button>
+          <div class="form-footer">
+            <a href="#" id="userSignupLink">Don't have an account? Sign up</a>
+          </div>
+        </form>
+
+        <!-- User Signup Form -->
+        <form id="userSignupForm" class="form" style="display:none">
+          <div class="form-group">
+            <label>Username</label>
+            <input type="text" id="signupUsername" placeholder="Choose a username" required />
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="signupPassword" placeholder="Create a password" required />
+          </div>
+          <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" id="signupConfirmPassword" placeholder="Confirm password" required />
+          </div>
+          <button type="submit" class="btn-primary">Sign Up</button>
+          <div class="form-footer">
+            <a href="#" id="userLoginLink">Already have an account? Login</a>
+          </div>
+        </form>
+
+        <!-- Admin Login Form -->
+        <form id="adminLoginForm" class="form" style="display:none">
+          <div class="form-group">
+            <label>Admin Username</label>
+            <input type="text" id="adminUsername" placeholder="Enter admin username" required />
+          </div>
+          <div class="form-group">
+            <label>Admin Password</label>
+            <input type="password" id="adminPassword" placeholder="Enter admin password" required />
+          </div>
+          <div class="form-group">
+            <label>Security Key</label>
+            <input type="password" id="adminSecurityKey" placeholder="Enter security key" required />
+          </div>
+          <button type="submit" class="btn-admin">Login as Admin</button>
+        </form>
+
+        <div id="errorMessage" class="error-message" style="display:none"></div>
+        <div id="successMessage" class="success-message" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>
+
