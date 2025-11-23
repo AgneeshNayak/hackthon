@@ -53,7 +53,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage, limits: { fileSize: 5 * 1024 * 1024 } });
 
 // Initialize database
-const dbPath = path.join(__dirname, 'disasteralert.db');
+const dbPath = path.join(process.cwd(), "disasteralert.db");
 const db = new sqlite3.Database(dbPath);
 
 // Create tables
